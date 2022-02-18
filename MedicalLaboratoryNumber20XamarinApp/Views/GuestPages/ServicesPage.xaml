@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels"
+             x:Class="MedicalLaboratoryNumber20XamarinApp.Views.GuestPages.ServicesPage">
+    <NavigationPage.TitleView>
+        <Label Text="Услуги лаборатории"
+               TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ListView x:Name="ServicesView"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy}"
+                  Refreshing="OnServicesRefreshing"
+                  HasUnevenRows="True"
+                  SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="5"
+                               BackgroundColor="{StaticResource AdditionalBackground}"
+                               Margin="5"
+                               Padding="20">
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                       FontSize="Large"/>
+                                <Label Text="{Binding PriceInRubles, StringFormat='Цена: {0} руб.'}"
+                                       FontSize="Medium" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -8,7 +8,7 @@ namespace MedicalLaboratoryNumber20XamarinApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new OptionsPage());
         }
 
         protected override void OnStart()

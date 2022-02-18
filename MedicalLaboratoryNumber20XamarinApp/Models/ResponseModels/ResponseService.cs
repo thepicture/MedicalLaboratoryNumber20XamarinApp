@@ -2,8 +2,8 @@
 {
     public class ResponseService
     {
-        public int Code;
-        public string Title;
-        public decimal PriceInRubles;
+        public int Code { get; set; }
+        public string Title { get; set; }
+        public decimal PriceInRubles { get; set; }
     }
 }

@@ -1,9 +1,11 @@
-﻿using Xamarin.Essentials;
+﻿using MedicalLaboratoryNumber20XamarinApp.Views.GuestPages;
+using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MedicalLaboratoryNumber20XamarinApp
 {
-    public partial class MainPage : ContentPage
+    public partial class OptionsPage : ContentPage
     {
         private bool _isAuthorized;
 
@@ -16,7 +18,7 @@ namespace MedicalLaboratoryNumber20XamarinApp
                 OnPropertyChanged(nameof(IsAuthorized));
             }
         }
-        public MainPage()
+        public OptionsPage()
         {
             InitializeComponent();
             SetTitle();
@@ -25,6 +27,14 @@ namespace MedicalLaboratoryNumber20XamarinApp
         private async void SetTitle()
         {
             IsAuthorized = await SecureStorage.GetAsync("User") != null;
+        }
+        
+        /// <summary>
+        /// Производит навигацию на список услуг.
+        /// </summary>
+        private async void NavigateToServicesPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ServicesPage());
         }
     }
 }

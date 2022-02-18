@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MedicalLaboratoryNumber20XamarinApp.MainPage">
+             x:Class="MedicalLaboratoryNumber20XamarinApp.OptionsPage">
     <NavigationPage.TitleView>
         <Label>
             <Label.Resources>
@@ -22,7 +22,7 @@
             </Label.Resources>
         </Label>
     </NavigationPage.TitleView>
-   
+
     <StackLayout VerticalOptions="Center"
                  HorizontalOptions="Center">
         <StackLayout Orientation="Horizontal">
@@ -40,10 +40,11 @@
                     </Style.Triggers>
                 </Style>
             </StackLayout.Style>
-        <Button Text="Регистрация"/>
-        <Button Text="Авторизация" />
+            <Button Text="Регистрация" />
+            <Button Text="Авторизация" />
         </StackLayout>
-        <Button Text="Список услуг"/>
+        <Button Text="Список услуг"
+                Clicked="NavigateToServicesPage" />
         <Button Text="Цены лаборатории" />
         <Button Text="Новости лаборатории" />
     </StackLayout>
