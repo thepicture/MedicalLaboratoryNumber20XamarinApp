@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicalLaboratoryNumber20XamarinApp.Views.GuestPages.NewsPage">
+    <NavigationPage.TitleView>
+        <Label Text="Новости лаборатории"
+               TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ListView x:Name="NewsView"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy}"
+                  Refreshing="OnNewsRefreshing"
+                  HasUnevenRows="True"
+                  SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="5"
+                                     Padding="20">
+                                <Label Text="{Binding Title}"
+                                       FontSize="Title" />
+                                <Label Text="{Binding PublicationDate, StringFormat='Опубликовано {0:dd/MM/yyyy} в {0:hh:mm}'}"
+                                       Opacity=".7"/>
+                            <Label Text="{Binding NewsText}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

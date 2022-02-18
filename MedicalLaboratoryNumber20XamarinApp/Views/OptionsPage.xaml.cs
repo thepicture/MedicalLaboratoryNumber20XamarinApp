@@ -34,11 +34,19 @@ namespace MedicalLaboratoryNumber20XamarinApp
         }
         
         /// <summary>
-        /// Производит навигацию на список услуг.
+        /// Осуществляет навигацию на список услуг.
         /// </summary>
-        private async void NavigateToServicesPage(object sender, EventArgs e)
+        private async void NavigateToServicesPageAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ServicesPage());
+        }
+
+        /// <summary>
+        /// Осуществляет навигацию в новости лаборатории.
+        /// </summary>
+        private async void NavigateToNewsPageAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewsPage());
         }
     }
 }
