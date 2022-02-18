@@ -3,6 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicalLaboratoryNumber20XamarinApp.App">
     <Application.Resources>
-
+        <Color x:Key="AttentionAccent">#498C51</Color>
+        <Color x:Key="AdditionalBackground">#76E383</Color>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="Comic" />
+        </Style>
+        <Style TargetType="ContentPage"></Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily"
+                    Value="Comic" />
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AttentionAccent}" />
+            <Setter Property="TextColor"
+                    Value="White" />
+        </Style>
     </Application.Resources>
 </Application>

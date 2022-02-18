@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicalLaboratoryNumber20XamarinApp.MainPage">
+    <NavigationPage.TitleView>
+        <Label>
+            <Label.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="TextColor"
+                            Value="White" />
+                    <Setter Property="Text"
+                            Value="Гостевой режим" />
+                    <Style.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding IsAuthorized}"
+                                     Value="True">
+                            <Setter Property="Text"
+                                    Value="Авторизованный режим" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Resources>
+        </Label>
+    </NavigationPage.TitleView>
+   
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="Center">
+        <StackLayout Orientation="Horizontal">
+            <StackLayout.Style>
+                <Style TargetType="StackLayout">
+                    <Setter Property="IsVisible"
+                            Value="True" />
+                    <Style.Triggers>
+                        <DataTrigger TargetType="StackLayout"
+                                     Binding="{Binding IsAuthorized}"
+                                     Value="True">
+                            <Setter Property="IsVisible"
+                                    Value="False" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackLayout.Style>
+        <Button Text="Регистрация"/>
+        <Button Text="Авторизация" />
+        </StackLayout>
+        <Button Text="Список услуг" />
+        <Button Text="Цены лаборатории" />
+        <Button Text="Новости лаборатории" />
+    </StackLayout>
+
+</ContentPage>
