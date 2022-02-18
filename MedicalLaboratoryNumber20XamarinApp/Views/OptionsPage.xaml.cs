@@ -21,10 +21,14 @@ namespace MedicalLaboratoryNumber20XamarinApp
         public OptionsPage()
         {
             InitializeComponent();
-            SetTitle();
+            SetIsAuthorized();
         }
 
-        private async void SetTitle()
+        /// <summary>
+        /// Определяет, авторизован ли пользователь
+        /// и устанавливает результат в <see cref="IsAuthorized"/>.
+        /// </summary>
+        private async void SetIsAuthorized()
         {
             IsAuthorized = await SecureStorage.GetAsync("User") != null;
         }
