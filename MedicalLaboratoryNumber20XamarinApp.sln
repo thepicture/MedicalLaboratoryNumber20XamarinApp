@@ -7,7 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalLaboratoryNumber20Xa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalLaboratoryNumber20XamarinApp.iOS", "MedicalLaboratoryNumber20XamarinApp.iOS\MedicalLaboratoryNumber20XamarinApp.iOS.csproj", "{9B5E0D21-9721-4061-933D-5F8BF3AC4987}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalLaboratoryNumber20XamarinApp", "MedicalLaboratoryNumber20XamarinApp\MedicalLaboratoryNumber20XamarinApp.csproj", "{3E13FED1-168A-444B-940D-DEBF387326D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalLaboratoryNumber20XamarinApp", "MedicalLaboratoryNumber20XamarinApp\MedicalLaboratoryNumber20XamarinApp.csproj", "{3E13FED1-168A-444B-940D-DEBF387326D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0850B39F-B092-4B1C-BF3A-ACC796123028}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalLaboratoryNumber20XamarinAppTests", "MedicalLaboratoryNumber20XamarinAppTests\MedicalLaboratoryNumber20XamarinAppTests.csproj", "{3B651171-B58B-4818-B203-879B043997CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +80,18 @@ Global
 		{3E13FED1-168A-444B-940D-DEBF387326D7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{3E13FED1-168A-444B-940D-DEBF387326D7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{3E13FED1-168A-444B-940D-DEBF387326D7}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Release|iPhone.Build.0 = Release|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{3B651171-B58B-4818-B203-879B043997CD}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
