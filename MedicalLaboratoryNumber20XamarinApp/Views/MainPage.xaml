@@ -43,7 +43,7 @@
         <Button Text="Регистрация"/>
         <Button Text="Авторизация" />
         </StackLayout>
-        <Button Text="Список услуг" />
+        <Button Text="Список услуг"/>
         <Button Text="Цены лаборатории" />
         <Button Text="Новости лаборатории" />
     </StackLayout>
