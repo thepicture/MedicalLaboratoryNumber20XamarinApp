@@ -26,7 +26,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client
-                    .GetAsync($"{_baseUrl}news");
+                    .GetAsync($"{_baseUrl}/news");
                 Stream content = await response.Content.ReadAsStreamAsync();
                 DataContractJsonSerializer serializer =
                     new DataContractJsonSerializer(typeof(IEnumerable<ResponseNews>));
@@ -42,7 +42,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client
-                    .GetAsync($"{_baseUrl}news/{id}");
+                    .GetAsync($"{_baseUrl}/news/{id}");
                 Stream content = await response.Content.ReadAsStreamAsync();
                 DataContractJsonSerializer serializer =
                     new DataContractJsonSerializer(typeof(ResponseNews));
