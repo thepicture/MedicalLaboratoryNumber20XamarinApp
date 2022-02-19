@@ -1,8 +1,8 @@
-﻿using MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels;
+﻿using MedicalLaboratoryNumber20XamarinApp.Models;
+using MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels;
+using MedicalLaboratoryNumber20XamarinApp.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,38 +14,22 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
         public NewsPage()
         {
             InitializeComponent();
-            NewsView.ItemsSource = new List<ResponseNews>
-            {
-                new ResponseNews
-                {
-                    Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now.ToString(),
-                    NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
-                },
-                new ResponseNews
-                {
-                    Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now.ToString(),
-                    NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
-                },
-                new ResponseNews
-                {
-                    Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now.ToString(),
-                    NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
-                },
-                new ResponseNews
-                {
-                    Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now.ToString(),
-                    NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
-                },
-            }.OrderBy(n => n.PublicationDate);
+            BindingContext = this;
+            _ = LoadNewsAsync();
         }
 
-        private void OnNewsRefreshing(object sender, EventArgs e)
+        private async Task LoadNewsAsync()
         {
+            IDataStoreService<ResponseNews> dataStore =
+              new NewsDataStoreService(LaboratoryAPI.BaseUrl);
+            NewsView.ItemsSource = await dataStore.ReadAllAsync();
+        }
 
+        private async void OnNewsRefreshing(object sender, EventArgs e)
+        {
+            IsBusy = true;
+            await LoadNewsAsync();
+            IsBusy = false;
         }
     }
 }

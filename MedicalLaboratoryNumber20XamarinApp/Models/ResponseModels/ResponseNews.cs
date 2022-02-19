@@ -10,6 +10,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels
         public string NewsText { get; set; }
         public DateTime PublicationDateAsDateTime =>
             DateTime.Parse(PublicationDate);
+        public string NewsTextFormatted =>
+            NewsText.Replace("\\n", Environment.NewLine);
     }
-
 }
