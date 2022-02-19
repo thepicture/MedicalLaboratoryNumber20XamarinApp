@@ -11,7 +11,7 @@
         <ListView x:Name="NewsView"
                   IsPullToRefreshEnabled="True"
                   IsRefreshing="{Binding IsBusy}"
-                  Refreshing="OnNewsRefreshing"
+                  Refreshing="OnNewsRefreshingAsync"
                   HasUnevenRows="True"
                   SelectionMode="None">
             <ListView.ItemTemplate>
