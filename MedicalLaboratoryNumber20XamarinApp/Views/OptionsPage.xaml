@@ -41,7 +41,8 @@
                 </Style>
             </StackLayout.Style>
             <Button Text="Регистрация" />
-            <Button Text="Авторизация" />
+            <Button Text="Авторизация"
+                    Clicked="NavigateToAuthorizationPageAsync"/>
         </StackLayout>
         <Button Text="Список услуг и цен"
                 Clicked="NavigateToServicesPageAsync" />

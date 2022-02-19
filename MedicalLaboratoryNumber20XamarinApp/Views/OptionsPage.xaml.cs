@@ -32,7 +32,7 @@ namespace MedicalLaboratoryNumber20XamarinApp
         {
             IsAuthorized = await SecureStorage.GetAsync("User") != null;
         }
-        
+
         /// <summary>
         /// Осуществляет навигацию на список услуг.
         /// </summary>
@@ -47,6 +47,14 @@ namespace MedicalLaboratoryNumber20XamarinApp
         private async void NavigateToNewsPageAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewsPage());
+        }
+
+        /// <summary>
+        /// Осуществляет навигацию на страницу авторизации.
+        /// </summary>
+        private async void NavigateToAuthorizationPageAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AuthorizationPage());
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicalLaboratoryNumber20XamarinApp.Views.GuestPages.AuthorizationPage">
+    <NavigationPage.TitleView>
+        <Label Text="Авторизация"
+               TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+            <StackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center">
+            <Label Text="Введите данные для авторизации:"
+                   FontSize="Title"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"></Label>
+                    <Label Text="Логин"
+                           FontSize="Medium"></Label>
+                    <Entry Placeholder="Введите логин"
+                           Keyboard="Text"
+                           x:Name="Login"></Entry>
+                    <Label Text="Пароль"
+                           FontSize="Medium"></Label>
+                    <Entry Placeholder="Введите пароль"
+                           IsPassword="True"
+                           x:Name="Password"></Entry>
+                <Button Text="Авторизоваться"
+                        Clicked="PerformAuthorizationAsync"></Button>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
