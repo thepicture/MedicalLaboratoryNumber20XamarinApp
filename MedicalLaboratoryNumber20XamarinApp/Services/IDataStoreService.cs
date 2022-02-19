@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace MedicalLaboratoryNumber20XamarinApp.Services
@@ -15,7 +16,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
         /// <param name="body">Тело запроса.</param>
         /// <returns><see langword="true"/>, если сущность опубликована, 
         /// иначе <see langword="false"/>.</returns>
-        Task<bool> CreateAsync<TRequestBody>(TRequestBody body);
+        Task<TResponseBody> CreateAsync(string body);
 
         /// <summary>
         /// Получает объект <typeparamref name="TResponseBody"/> 
@@ -38,6 +39,6 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
         /// <param name="id">Идентификатор ресурса.</param>
         /// <param name="body">Тело запроса.</param>
         /// <returns></returns>
-        Task<bool> UpdateAsync<TRequestBody>(string id, TRequestBody body);
+        Task<bool> UpdateAsync(string id, string body);
     }
 }

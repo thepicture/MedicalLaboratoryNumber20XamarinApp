@@ -16,9 +16,9 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
             _baseUrl = baseUrl;
         }
 
-        public async Task<bool> CreateAsync<TRequestBody>(TRequestBody body)
+        public async Task<ResponseService> CreateAsync(string body)
         {
-            return await Task.FromResult(false);
+            return await Task.FromResult<ResponseService>(null);
         }
 
         public async Task<IEnumerable<ResponseService>> ReadAllAsync()
@@ -53,7 +53,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
             }
         }
 
-        public async Task<bool> UpdateAsync<TRequestBody>(string id, TRequestBody body)
+        public async Task<bool> UpdateAsync(string id, string body)
         {
             return await Task.FromResult(false);
         }
