@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 namespace MedicalLaboratoryNumber20XamarinApp.Services.Tests
 {
     [TestClass()]
-    public class ServicesDataStoreServiceTests
+    public class NewsDataStoreServiceTests
     {
-        public static ServicesDataStoreService service =
-            new ServicesDataStoreService(LaboratoryAPI
+        public static NewsDataStoreService service =
+            new NewsDataStoreService(LaboratoryAPI
                 .BaseUrl
                 .Replace("10.0.2.2", "127.0.0.1"));
 
         [TestMethod]
-        public async Task ReadAllAsyncTest_CountOfServices_Returns17()
+        public async Task ReadAllAsyncTest_CountOfNews_Returns2()
         {
             // Arrange.
-            int expected = 17;
+            int expected = 3;
 
             // Act.
-            IEnumerable<ResponseService> response = await service.ReadAllAsync();
+            IEnumerable<ResponseNews> response = await service.ReadAllAsync();
             int actual = response.Count();
 
             // Assert.
@@ -30,13 +30,13 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services.Tests
         }
 
         [TestMethod]
-        public async Task ReadSingleAsyncTest_GetById229_ReturnsAIDS()
+        public async Task ReadSingleAsyncTest_GetById3_ReturnsSuperDiscount()
         {
             // Arrange.
-            string expected = "СПИД";
+            string expected = "СУПЕР АКЦИЯ НА ВАКЦИНАЦИЮ!";
 
             // Act.
-            ResponseService response = await service.ReadSingleAsync("229");
+            ResponseNews response = await service.ReadSingleAsync("3");
             string actual = response.Title;
 
             // Assert.

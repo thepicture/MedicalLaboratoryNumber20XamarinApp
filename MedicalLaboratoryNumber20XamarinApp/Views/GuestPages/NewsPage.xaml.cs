@@ -19,25 +19,25 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
                 new ResponseNews
                 {
                     Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now,
+                    PublicationDate = DateTime.Now.ToString(),
                     NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
                 },
                 new ResponseNews
                 {
                     Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now,
+                    PublicationDate = DateTime.Now.ToString(),
                     NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
                 },
                 new ResponseNews
                 {
                     Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now,
+                    PublicationDate = DateTime.Now.ToString(),
                     NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
                 },
                 new ResponseNews
                 {
                     Title = Guid.NewGuid().ToString(),
-                    PublicationDate = DateTime.Now,
+                    PublicationDate = DateTime.Now.ToString(),
                     NewsText = string.Join("", Enumerable.Repeat(Guid.NewGuid().ToString(), 10))
                 },
             }.OrderBy(n => n.PublicationDate);

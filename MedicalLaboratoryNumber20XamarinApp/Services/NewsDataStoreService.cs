@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MedicalLaboratoryNumber20XamarinApp.Services
 {
-    public class ServicesDataStoreService : IDataStoreService<ResponseService>
+    public class NewsDataStoreService : IDataStoreService<ResponseNews>
     {
         private readonly string _baseUrl;
 
-        public ServicesDataStoreService(string baseUrl)
+        public NewsDataStoreService(string baseUrl)
         {
             _baseUrl = baseUrl;
         }
@@ -21,33 +21,33 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
             return await Task.FromResult(false);
         }
 
-        public async Task<IEnumerable<ResponseService>> ReadAllAsync()
+        public async Task<IEnumerable<ResponseNews>> ReadAllAsync()
         {
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client
-                    .GetAsync($"{_baseUrl}/services");
+                    .GetAsync($"{_baseUrl}news");
                 Stream content = await response.Content.ReadAsStreamAsync();
                 DataContractJsonSerializer serializer =
-                    new DataContractJsonSerializer(typeof(IEnumerable<ResponseService>));
-                IEnumerable<ResponseService> result =
-                    (IEnumerable<ResponseService>)serializer
+                    new DataContractJsonSerializer(typeof(IEnumerable<ResponseNews>));
+                IEnumerable<ResponseNews> result =
+                    (IEnumerable<ResponseNews>)serializer
                     .ReadObject(content);
                 return result;
             }
         }
 
-        public async Task<ResponseService> ReadSingleAsync(string id)
+        public async Task<ResponseNews> ReadSingleAsync(string id)
         {
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client
-                    .GetAsync($"{_baseUrl}/services/{id}");
+                    .GetAsync($"{_baseUrl}news/{id}");
                 Stream content = await response.Content.ReadAsStreamAsync();
                 DataContractJsonSerializer serializer =
-                    new DataContractJsonSerializer(typeof(ResponseService));
-                ResponseService result =
-                    (ResponseService)serializer
+                    new DataContractJsonSerializer(typeof(ResponseNews));
+                ResponseNews result =
+                    (ResponseNews)serializer
                     .ReadObject(content);
                 return result;
             }

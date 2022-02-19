@@ -6,8 +6,10 @@ namespace MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels
     {
         public int NewsId { get; set; }
         public string Title { get; set; }
-        public DateTime PublicationDate { get; set; }
+        public string PublicationDate { get; set; }
         public string NewsText { get; set; }
+        public DateTime PublicationDateAsDateTime =>
+            DateTime.Parse(PublicationDate);
     }
 
 }

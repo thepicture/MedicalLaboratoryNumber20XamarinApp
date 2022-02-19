@@ -1,4 +1,5 @@
 ﻿
+using MedicalLaboratoryNumber20XamarinApp.Models;
 using MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels;
 using MedicalLaboratoryNumber20XamarinApp.Services;
 using System;
@@ -34,7 +35,8 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
         /// <returns>Задача, репрезентирующая выполненную подгрузку.</returns>
         private async Task LoadServicesAsync()
         {
-            IDataStoreService<ResponseService> dataStore = new ServicesDataStoreService();
+            IDataStoreService<ResponseService> dataStore =
+                new ServicesDataStoreService(LaboratoryAPI.BaseUrl);
             ServicesView.ItemsSource = await dataStore.ReadAllAsync();
         }
     }
