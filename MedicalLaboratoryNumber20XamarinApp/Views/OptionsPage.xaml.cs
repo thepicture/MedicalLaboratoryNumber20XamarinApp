@@ -10,6 +10,7 @@ namespace MedicalLaboratoryNumber20XamarinApp
     public partial class OptionsPage : ContentPage
     {
         private RequestPatient _currentUser;
+        private readonly IFeedback _feedback = new DisplayAlertFeedback();
 
         public RequestPatient CurrentUser
         {
@@ -24,16 +25,17 @@ namespace MedicalLaboratoryNumber20XamarinApp
         {
             InitializeComponent();
             BindingContext = this;
-            SetIsAuthorized();
+            _ = SetIsAuthorizedAsync();
         }
 
         /// <summary>
         /// Устанавливает данные текущего пользователя 
         /// в <see cref="CurrentUser"/>.
         /// </summary>
-        private async Task SetIsAuthorized()
+        private async Task SetIsAuthorizedAsync()
         {
             CurrentUser = await SessionService.GetSessionAsync();
+            PerformGuestButton.IsVisible = CurrentUser != null;
         }
 
         /// <summary>
@@ -62,7 +64,17 @@ namespace MedicalLaboratoryNumber20XamarinApp
 
         private async void RefreshOptions(object sender, EventArgs e)
         {
-            await SetIsAuthorized();
+            await SetIsAuthorizedAsync();
+        }
+
+        private async void PerformGuestMode(object sender, EventArgs e)
+        {
+            if (await _feedback.AskAsync("Вы действительно " +
+                "хотите перейти в режим гостя?"))
+            {
+                Xamarin.Essentials.SecureStorage.Remove("session");
+                await SetIsAuthorizedAsync();
+            }
         }
     }
 }
