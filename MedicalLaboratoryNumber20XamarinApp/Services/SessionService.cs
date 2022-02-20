@@ -61,5 +61,10 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
                 .Deserialize(new MemoryStream(Encoding.Unicode.GetBytes(value)));
             return patient;
         }
+
+        public static void ClearSession()
+        {
+            SessionSecureStorage.SetAsync("session", null);
+        }
     }
 }

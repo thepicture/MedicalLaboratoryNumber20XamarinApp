@@ -62,17 +62,23 @@ namespace MedicalLaboratoryNumber20XamarinApp
             await Navigation.PushAsync(new AuthorizationPage());
         }
 
+        /// <summary>
+        /// Обновляет опции страницы.
+        /// </summary>
         private async void RefreshOptions(object sender, EventArgs e)
         {
             await SetIsAuthorizedAsync();
         }
 
+        /// <summary>
+        /// Переходит в гостевой режим.
+        /// </summary>
         private async void PerformGuestMode(object sender, EventArgs e)
         {
             if (await _feedback.AskAsync("Вы действительно " +
                 "хотите перейти в режим гостя?"))
             {
-                Xamarin.Essentials.SecureStorage.Remove("session");
+                SessionService.ClearSession();
                 await SetIsAuthorizedAsync();
             }
         }

@@ -12,6 +12,11 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
 
         public async Task SetAsync(string key, string value)
         {
+            if (value == null)
+            {
+                _ = SecureStorage.Remove(key);
+                return;
+            }
             await SecureStorage.SetAsync(key, value);
         }
     }
