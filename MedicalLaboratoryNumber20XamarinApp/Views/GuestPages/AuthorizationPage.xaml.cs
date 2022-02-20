@@ -1,4 +1,5 @@
 ﻿using MedicalLaboratoryNumber20XamarinApp.Models;
+using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
 using MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels;
 using MedicalLaboratoryNumber20XamarinApp.Services;
 using System;
@@ -38,8 +39,8 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
                 + "\",\"password\":\""
                 + Password.Text
                 + "\"}";
-            ResponsePatient response = await _dataStore.CreateAsync(json);
-            if (response == null)
+            ResponsePatient patient = await _dataStore.CreateAsync(json);
+            if (patient == null)
             {
                 await _feedback.WarnAsync("Неверный логин или пароль. "
                                           + "Проверьте правильность ввода. "
@@ -47,6 +48,13 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
                                           + "а регистр пароля важен");
                 return;
             }
+            RequestCredentials credentials = new RequestCredentials
+            {
+                Login = Login.Text,
+                Password = Password.Text,
+            };
+
+            await SessionService.SetSessionAsync(patient, credentials);
             await _feedback.InformAsync("Вы успешно авторизованы");
         }
     }
