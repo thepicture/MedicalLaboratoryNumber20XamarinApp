@@ -1,11 +1,7 @@
 ﻿using MedicalLaboratoryNumber20XamarinApp.Models;
-using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
 using MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels;
 using MedicalLaboratoryNumber20XamarinApp.Services;
 using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +12,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
     {
         private readonly IDataStoreService<ResponsePatient> _dataStore
             = new AuthorizationDataStoreService(LaboratoryAPI.BaseUrl);
+        private readonly IFeedback _feedback = new DisplayAlertFeedback();
         public AuthorizationPage()
         {
             InitializeComponent();
@@ -30,11 +27,10 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
             if (string.IsNullOrWhiteSpace(Login.Text)
                 || string.IsNullOrWhiteSpace(Password.Text))
             {
-                await DisplayAlert("Предупреждение",
-                    "Не указан логин или пароль. " +
-                    "Укажите логин или пароль, " +
-                    "прежде чем авторизоваться",
-                    "ОК");
+                await _feedback.WarnAsync("Не указан "
+                                          + "логин или пароль. "
+                                          + "Укажите логин или пароль, "
+                                          + "прежде чем авторизоваться");
                 return;
             }
             string json = "{\"Login\":\""
@@ -45,16 +41,13 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
             ResponsePatient response = await _dataStore.CreateAsync(json);
             if (response == null)
             {
-                await DisplayAlert("Предупреждение",
-                   "Неверный логин или пароль. " +
-                   "Проверьте правильность ввода. " +
-                   "Регистр логина не важен, а регистр пароля важен",
-                   "ОК");
+                await _feedback.WarnAsync("Неверный логин или пароль. "
+                                          + "Проверьте правильность ввода. "
+                                          + "Регистр логина не важен, "
+                                          + "а регистр пароля важен");
                 return;
             }
-            await DisplayAlert("Информация",
-               "Вы успешно авторизованы",
-               "ОК");
+            await _feedback.InformAsync("Вы успешно авторизованы");
         }
     }
 }
