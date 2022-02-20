@@ -1,6 +1,5 @@
 ﻿using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
 using MedicalLaboratoryNumber20XamarinApp.Models.ResponseModels;
-using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +26,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
         {
             RequestPatient requestPatient = new RequestPatient
             {
-                BirthDate = DateTime.Parse(responsePatient.BirthDate),
+                BirthDate = responsePatient.BirthDate,
                 Credentials = credentials,
                 Email = responsePatient.Email,
                 FullName = responsePatient.FullName,
@@ -54,6 +53,10 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(RequestPatient));
             string value = await SessionSecureStorage.GetAsync("session");
+            if (value == null)
+            {
+                return null;
+            }
             RequestPatient patient = (RequestPatient)xmlSerializer
                 .Deserialize(new MemoryStream(Encoding.Unicode.GetBytes(value)));
             return patient;

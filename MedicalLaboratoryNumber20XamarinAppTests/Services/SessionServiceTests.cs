@@ -32,13 +32,27 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services.Tests
 
         [TestMethod()]
         [ExpectedException(typeof(Exception), AllowDerivedTypes = true)]
-        public async Task GetSessionAsyncTest_SetNothing_ThrowsException()
+        public async Task GetSessionAsyncTest_SetNull_ThrowsException()
         {
             // Arrange.
             SessionService.SessionSecureStorage = new MockSecureStorageWrapper();
 
             // Act.
             await SessionService.SetSessionAsync(null, null);
+        }
+
+        [TestMethod()]
+        public async Task SetSessionAsyncTest_GetNothing_ReturnsNull()
+        {
+            // Arrange.
+            RequestPatient expected = null;
+            SessionService.SessionSecureStorage = new MockSecureStorageWrapper();
+
+            // Act.
+            RequestPatient actual = await SessionService.GetSessionAsync();
+
+            // Assert.
+            Assert.AreEqual(expected, actual);
         }
     }
 }

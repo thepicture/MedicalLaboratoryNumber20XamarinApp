@@ -10,7 +10,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Models.RequestModels
         public string Password;
         #region not mandatory
         public string FullName;
-        public DateTime BirthDate;
+        public string BirthDate;
         public string PassportNumber;
         public string PassportSeries;
         public string SecurityNumber;

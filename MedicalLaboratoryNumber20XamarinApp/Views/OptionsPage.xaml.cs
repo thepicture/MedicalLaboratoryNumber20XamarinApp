@@ -1,21 +1,22 @@
-﻿using MedicalLaboratoryNumber20XamarinApp.Views.GuestPages;
+﻿using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
+using MedicalLaboratoryNumber20XamarinApp.Services;
+using MedicalLaboratoryNumber20XamarinApp.Views.GuestPages;
 using System;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MedicalLaboratoryNumber20XamarinApp
 {
     public partial class OptionsPage : ContentPage
     {
-        private bool _isAuthorized;
+        private RequestPatient _currentUser;
 
-        public bool IsAuthorized
+        public RequestPatient CurrentUser
         {
-            get => _isAuthorized;
+            get => _currentUser;
             set
             {
-                _isAuthorized = value;
-                OnPropertyChanged(nameof(IsAuthorized));
+                _currentUser = value;
+                OnPropertyChanged(nameof(CurrentUser));
             }
         }
         public OptionsPage()
@@ -25,12 +26,12 @@ namespace MedicalLaboratoryNumber20XamarinApp
         }
 
         /// <summary>
-        /// Определяет, авторизован ли пользователь
-        /// и устанавливает результат в <see cref="IsAuthorized"/>.
+        /// Устанавливает данные текущего пользователя 
+        /// в <see cref="CurrentUser"/>.
         /// </summary>
         private async void SetIsAuthorized()
         {
-            IsAuthorized = await SecureStorage.GetAsync("User") != null;
+            CurrentUser = await SessionService.GetSessionAsync();
         }
 
         /// <summary>
