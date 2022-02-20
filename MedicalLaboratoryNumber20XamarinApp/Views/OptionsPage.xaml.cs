@@ -2,6 +2,7 @@
 using MedicalLaboratoryNumber20XamarinApp.Services;
 using MedicalLaboratoryNumber20XamarinApp.Views.GuestPages;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MedicalLaboratoryNumber20XamarinApp
@@ -22,6 +23,7 @@ namespace MedicalLaboratoryNumber20XamarinApp
         public OptionsPage()
         {
             InitializeComponent();
+            BindingContext = this;
             SetIsAuthorized();
         }
 
@@ -29,13 +31,13 @@ namespace MedicalLaboratoryNumber20XamarinApp
         /// Устанавливает данные текущего пользователя 
         /// в <see cref="CurrentUser"/>.
         /// </summary>
-        private async void SetIsAuthorized()
+        private async Task SetIsAuthorized()
         {
             CurrentUser = await SessionService.GetSessionAsync();
         }
 
         /// <summary>
-        /// Осуществляет навигацию на список услуг.
+        /// Осуществляет навигацию в список услуг.
         /// </summary>
         private async void NavigateToServicesPageAsync(object sender, EventArgs e)
         {
@@ -56,6 +58,11 @@ namespace MedicalLaboratoryNumber20XamarinApp
         private async void NavigateToAuthorizationPageAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AuthorizationPage());
+        }
+
+        private async void RefreshOptions(object sender, EventArgs e)
+        {
+            await SetIsAuthorized();
         }
     }
 }

@@ -8,24 +8,26 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-            <StackLayout VerticalOptions="Center"
-                         HorizontalOptions="Center">
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center">
             <Label Text="Введите данные для авторизации:"
                    FontSize="Title"
                    VerticalOptions="Start"
                    HorizontalOptions="Center"></Label>
-                    <Label Text="Логин"
-                           FontSize="Medium"></Label>
-                    <Entry Placeholder="Введите логин"
-                           Keyboard="Text"
-                           x:Name="Login"></Entry>
-                    <Label Text="Пароль"
-                           FontSize="Medium"></Label>
-                    <Entry Placeholder="Введите пароль"
-                           IsPassword="True"
-                           x:Name="Password"></Entry>
-                <Button Text="Авторизоваться"
-                        Clicked="PerformAuthorizationAsync"></Button>
-            </StackLayout>
+            <Label Text="Логин"
+                   FontSize="Medium"></Label>
+            <Entry Placeholder="Введите логин"
+                   Keyboard="Text"
+                   Text="gdunkerly0"
+                   x:Name="Login"></Entry>
+            <Label Text="Пароль"
+                   FontSize="Medium"></Label>
+            <Entry Placeholder="Введите пароль"
+                   IsPassword="True"
+                   Text="IGU2Q1qifXuf"
+                   x:Name="Password"></Entry>
+            <Button Text="Авторизоваться"
+                    Clicked="PerformAuthorizationAsync"></Button>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

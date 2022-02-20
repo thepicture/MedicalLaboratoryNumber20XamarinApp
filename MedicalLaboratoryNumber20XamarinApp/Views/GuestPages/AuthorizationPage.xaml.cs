@@ -58,7 +58,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
             {
                 await SessionService.SetSessionAsync(patient, credentials);
                 await _feedback.InformAsync("Вы успешно авторизованы");
-                await Navigation.PopAsync();
+                await Navigation.PopToRootAsync();
             }
             catch (Exception)
             {

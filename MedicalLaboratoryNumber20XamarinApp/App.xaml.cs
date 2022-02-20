@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using MedicalLaboratoryNumber20XamarinApp.Services;
+using Xamarin.Forms;
 
 namespace MedicalLaboratoryNumber20XamarinApp
 {
@@ -8,6 +9,7 @@ namespace MedicalLaboratoryNumber20XamarinApp
         {
             InitializeComponent();
 
+            SessionService.SessionSecureStorage = new SimpleSecureStorageWrapper();
             MainPage = new NavigationPage(new OptionsPage());
         }
 

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MedicalLaboratoryNumber20XamarinApp.OptionsPage">
+             x:Class="MedicalLaboratoryNumber20XamarinApp.OptionsPage"
+             Appearing="RefreshOptions">
     <NavigationPage.TitleView>
         <Label>
             <Label.Resources>
@@ -9,13 +10,13 @@
                     <Setter Property="TextColor"
                             Value="White" />
                     <Setter Property="Text"
-                            Value="Гостевой режим" />
+                            Value="Авторизованный режим" />
                     <Style.Triggers>
                         <DataTrigger TargetType="Label"
-                                     Binding="{Binding IsAuthorized}"
-                                     Value="True">
+                                     Binding="{Binding CurrentUser}"
+                                     Value="{x:Null}">
                             <Setter Property="Text"
-                                    Value="Авторизованный режим" />
+                                    Value="Гостевой режим" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -25,29 +26,47 @@
 
     <StackLayout VerticalOptions="Center"
                  HorizontalOptions="Center">
+        <Label HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Добро пожаловать, " />
+                        <Span>
+                            <Span.Text>
+                                <Binding Path="CurrentUser.FullName">
+                                    <Binding.FallbackValue>
+                                        Гость
+                                    </Binding.FallbackValue>
+                                </Binding>
+                            </Span.Text>
+                        </Span>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
         <StackLayout Orientation="Horizontal">
             <StackLayout.Style>
                 <Style TargetType="StackLayout">
                     <Setter Property="IsVisible"
-                            Value="True" />
+                            Value="False" />
                     <Style.Triggers>
                         <DataTrigger TargetType="StackLayout"
-                                     Binding="{Binding IsAuthorized}"
-                                     Value="True">
+                                     Binding="{Binding CurrentUser, TargetNullValue=''}"
+                                     Value="">
                             <Setter Property="IsVisible"
-                                    Value="False" />
+                                    Value="True" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </StackLayout.Style>
             <Button Text="Регистрация" />
             <Button Text="Авторизация"
-                    Clicked="NavigateToAuthorizationPageAsync"/>
+                    Clicked="NavigateToAuthorizationPageAsync" />
         </StackLayout>
         <Button Text="Список услуг и цен"
                 Clicked="NavigateToServicesPageAsync" />
-        <Button Text="Новости лаборатории" 
-                Clicked="NavigateToNewsPageAsync"/>
+        <Button Text="Новости лаборатории"
+                Clicked="NavigateToNewsPageAsync" />
     </StackLayout>
 
 </ContentPage>
