@@ -67,6 +67,9 @@
                 Clicked="NavigateToServicesPageAsync" />
         <Button Text="Новости лаборатории"
                 Clicked="NavigateToNewsPageAsync" />
+        <Button Text="Профиль"
+                Clicked="PerformGoToProfilePage"
+                x:Name="ProfileButton"></Button>
         <Button Text="Перейти в режим гостя"
                 Clicked="PerformGuestMode"
                 x:Name="PerformGuestButton">

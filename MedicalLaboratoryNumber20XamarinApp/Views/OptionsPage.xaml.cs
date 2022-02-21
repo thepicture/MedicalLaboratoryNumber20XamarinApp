@@ -1,5 +1,6 @@
 ﻿using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
 using MedicalLaboratoryNumber20XamarinApp.Services;
+using MedicalLaboratoryNumber20XamarinApp.Views.AuthorizedPages;
 using MedicalLaboratoryNumber20XamarinApp.Views.GuestPages;
 using System;
 using System.Threading.Tasks;
@@ -35,7 +36,9 @@ namespace MedicalLaboratoryNumber20XamarinApp
         private async Task SetIsAuthorizedAsync()
         {
             CurrentUser = await SessionService.GetSessionAsync();
-            PerformGuestButton.IsVisible = CurrentUser != null;
+            PerformGuestButton.IsVisible =
+                ProfileButton.IsVisible =
+                CurrentUser != null;
         }
 
         /// <summary>
@@ -81,6 +84,11 @@ namespace MedicalLaboratoryNumber20XamarinApp
                 SessionService.ClearSession();
                 await SetIsAuthorizedAsync();
             }
+        }
+
+        private async void PerformGoToProfilePage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProfilePage());
         }
     }
 }

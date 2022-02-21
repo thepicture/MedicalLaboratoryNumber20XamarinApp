@@ -1,4 +1,6 @@
-﻿namespace MedicalLaboratoryNumber20XamarinApp.Models.RequestModels
+﻿using System;
+
+namespace MedicalLaboratoryNumber20XamarinApp.Models.RequestModels
 {
     public class RequestPatient
     {
@@ -12,6 +14,8 @@
         public string PassportNumber { get; set; }
         public string PassportSeries { get; set; }
         public string SecurityNumber { get; set; }
+        public DateTime BirthDateAsDateTime => DateTime.Parse(BirthDate);
+        public int Age => DateTime.Now.Year - BirthDateAsDateTime.Year;
         #endregion
     }
 }

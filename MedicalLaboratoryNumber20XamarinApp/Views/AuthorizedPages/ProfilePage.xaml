@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicalLaboratoryNumber20XamarinApp.Views.AuthorizedPages.ProfilePage">
+    <NavigationPage.TitleView>
+        <Label Text="Профиль"
+               TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Label Text="{Binding CurrentUser.FullName}"
+                   FontSize="Title"
+                   HorizontalOptions="Center"
+                   FontFamily="ComicBold"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Дата рождения:"
+                       FontFamily="ComicBold"></Label>
+                <Label Text="{Binding CurrentUser.BirthDateAsDateTime, StringFormat='{}{0:dd/MM/yyyy}'}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Возраст:"
+                       FontFamily="ComicBold"></Label>
+                <Label Text="{Binding CurrentUser.Age}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Серия паспорта:"
+                       FontFamily="ComicBold"></Label>
+                <Label Text="{Binding CurrentUser.PassportSeries}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Номер паспорта:"
+                       FontFamily="ComicBold"></Label>
+                <Label Text="{Binding CurrentUser.PassportNumber}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Номер страхового полиса:"
+                       FontFamily="ComicBold"></Label>
+                <Label Text="{Binding CurrentUser.SecurityNumber}"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Телефон:"
+                       FontFamily="ComicBold"
+                       VerticalOptions="Center"></Label>
+                <Entry Text="{Binding CurrentUser.Phone}"
+                       HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="E-mail:"
+                       FontFamily="ComicBold"
+                       VerticalOptions="Center"></Label>
+                <Entry Text="{Binding CurrentUser.Email}"
+                       HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Логин:"
+                       FontFamily="ComicBold"></Label>
+                <Label Text="{Binding CurrentUser.Credentials.Login}"
+                       ></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Пароль:"
+                       FontFamily="ComicBold"
+                       VerticalOptions="Center"></Label>
+                <Entry Text="{Binding CurrentUser.Credentials.Password}"
+                       HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
