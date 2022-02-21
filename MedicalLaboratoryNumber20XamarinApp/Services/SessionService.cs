@@ -62,9 +62,9 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
             return patient;
         }
 
-        public static void ClearSession()
+        public static async void ClearSession()
         {
-            SessionSecureStorage.SetAsync("session", null);
+            await SessionSecureStorage.SetAsync("session", null);
         }
     }
 }
