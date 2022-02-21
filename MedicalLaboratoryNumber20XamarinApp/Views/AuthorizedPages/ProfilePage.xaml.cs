@@ -1,6 +1,7 @@
 ﻿
 using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
 using MedicalLaboratoryNumber20XamarinApp.Services;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,6 +32,11 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.AuthorizedPages
                 _currentUser = value;
                 OnPropertyChanged(nameof(CurrentUser));
             }
+        }
+
+        private async void PerformSavingProfile(object sender, EventArgs e)
+        {
+
         }
     }
 }
