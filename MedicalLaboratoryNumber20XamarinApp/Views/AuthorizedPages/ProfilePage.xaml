@@ -62,11 +62,11 @@
                 <Label Text="Пароль:"
                        FontFamily="ComicBold"
                        VerticalOptions="Center"></Label>
-                <Entry Text="{Binding CurrentUser.Credentials.Password}"
+                <Entry Text="{Binding CurrentUser.Password}"
                        HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
                 <Button Text="Сохранить изменённые данные"
                         Clicked="PerformSavingProfile"></Button>
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
