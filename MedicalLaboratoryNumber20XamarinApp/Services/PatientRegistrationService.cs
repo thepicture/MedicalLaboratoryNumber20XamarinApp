@@ -1,6 +1,5 @@
 ﻿using MedicalLaboratoryNumber20XamarinApp.Models.Exceptions;
 using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
-using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -10,18 +9,17 @@ using System.Threading.Tasks;
 namespace MedicalLaboratoryNumber20XamarinApp.Services
 {
     /// <summary>
-    /// Реализует метод для изменения профиля пациента.
+    /// Реализует метод для регистрации пациента.
     /// </summary>
-    public static class ProfileEditService
+    public static class PatientRegistrationService
     {
         /// <summary>
-        /// Изменяет профиль пациента.
+        /// Регистрирует пациента.
         /// </summary>
         /// <param name="patient">Пациент.</param>
         /// <param name="baseUri">Идентификатор ресурса.</param>
-        /// <returns><see langword="true"/>, если профиль пациента обновлён, 
-        /// иначе <see langword="false"/>.</returns>
-        public static async Task<bool> EditProfile(RequestPatient patient, string baseUri)
+        /// <returns></returns>
+        public static async Task<bool> Register(RequestPatient patient, string baseUri)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -36,17 +34,12 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
 
                         StringContent content = new StringContent(jsonPatient);
                         content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                        HttpRequestMessage request = new HttpRequestMessage
-                        {
-                            Method = new HttpMethod("PATCH"),
-                            RequestUri = new Uri($"{baseUri}/sessions/edit"),
-                            Content = content
-                        };
-                        HttpResponseMessage response = await client.SendAsync(request);
+                        HttpResponseMessage response = await client.PostAsync($"{baseUri}/sessions/register",
+                                                                              content);
                         if (response.StatusCode != System.Net.HttpStatusCode.OK)
                         {
                             string reason = response.ReasonPhrase;
-                            throw new EditProfileException(reason);
+                            throw new RegistrationException(reason);
                         }
                     }
                 }
