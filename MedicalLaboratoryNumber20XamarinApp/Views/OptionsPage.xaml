@@ -59,7 +59,8 @@
                     </Style.Triggers>
                 </Style>
             </StackLayout.Style>
-            <Button Text="Регистрация" />
+            <Button Text="Регистрация"
+                    Clicked="NavigateToRegistrationPageAsync"/>
             <Button Text="Авторизация"
                     Clicked="NavigateToAuthorizationPageAsync" />
         </StackLayout>

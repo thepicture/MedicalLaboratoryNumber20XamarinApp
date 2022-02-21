@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicalLaboratoryNumber20XamarinApp.Views.GuestPages.RegistrationPage">
+    <NavigationPage.TitleView>
+        <Label Text="Регистрация"
+               TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+    <ScrollView>
+        <StackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Label Text="Введите данные для регистрации:"
+                   FontSize="Title"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"></Label>
+            <Label Text="ФИО"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.FullName}"
+                   Keyboard="Text"></Entry>
+            <Label Text="Серия паспорта:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.PassportSeries}"
+                   Keyboard="Numeric"
+                   MaxLength="4"></Entry>
+            <Label Text="Номер паспорта:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.PassportNumber}"
+                   Keyboard="Numeric"></Entry>
+            <Label Text="Телефон:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.Phone}"
+                   Keyboard="Telephone"/>
+            <Label Text="E-mail:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.Email}"
+                   Keyboard="Email"></Entry>
+            <Label Text="Дата рождения:"
+                   FontSize="Medium"></Label>
+            <DatePicker Date="{Binding CurrentUser.BirthDate}" />
+            <Label Text="Номер страхового полиса:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.SecurityNumber}"
+                   MaxLength="50"
+                   Keyboard="Numeric"></Entry>
+            <Label Text="Логин:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.Credentials.Login}"
+                   Keyboard="Text"></Entry>
+            <Label Text="Пароль:"
+                   FontSize="Medium"></Label>
+            <Entry Text="{Binding CurrentUser.Password}"
+                   IsPassword="True"></Entry>
+            <Button Text="Зарегистрироваться"
+                    Clicked="PerformRegisterAsync"></Button>
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

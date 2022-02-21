@@ -90,5 +90,10 @@ namespace MedicalLaboratoryNumber20XamarinApp
         {
             await Navigation.PushAsync(new ProfilePage());
         }
+
+        private async void NavigateToRegistrationPageAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrationPage());
+        }
     }
 }
