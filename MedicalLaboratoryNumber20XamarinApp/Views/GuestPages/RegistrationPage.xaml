@@ -18,7 +18,8 @@
             <Label Text="ФИО"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.FullName}"
-                   Keyboard="Text"></Entry>
+                   Keyboard="Text"
+                   MaxLength="100"></Entry>
             <Label Text="Серия паспорта:"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.PassportSeries}"
@@ -27,15 +28,18 @@
             <Label Text="Номер паспорта:"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.PassportNumber}"
-                   Keyboard="Numeric"></Entry>
+                   Keyboard="Numeric"
+                   MaxLength="6"></Entry>
             <Label Text="Телефон:"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.Phone}"
-                   Keyboard="Telephone"/>
+                   Keyboard="Telephone"
+                   MaxLength="50"/>
             <Label Text="E-mail:"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.Email}"
-                   Keyboard="Email"></Entry>
+                   Keyboard="Email"
+                   MaxLength="50"></Entry>
             <Label Text="Дата рождения:"
                    FontSize="Medium"></Label>
             <DatePicker Date="{Binding CurrentUser.BirthDate}" />
@@ -47,11 +51,13 @@
             <Label Text="Логин:"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.Credentials.Login}"
-                   Keyboard="Text"></Entry>
+                   Keyboard="Text"
+                   MaxLength="100"></Entry>
             <Label Text="Пароль:"
                    FontSize="Medium"></Label>
             <Entry Text="{Binding CurrentUser.Credentials.Password}"
-                   IsPassword="True"></Entry>
+                   IsPassword="True"
+                   MaxLength="100"></Entry>
             <Button Text="Зарегистрироваться"
                     Clicked="PerformRegisterAsync"></Button>
         </StackLayout>
