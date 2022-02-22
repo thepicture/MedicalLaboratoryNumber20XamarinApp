@@ -50,7 +50,7 @@
                    Keyboard="Text"></Entry>
             <Label Text="Пароль:"
                    FontSize="Medium"></Label>
-            <Entry Text="{Binding CurrentUser.Password}"
+            <Entry Text="{Binding CurrentUser.Credentials.Password}"
                    IsPassword="True"></Entry>
             <Button Text="Зарегистрироваться"
                     Clicked="PerformRegisterAsync"></Button>
