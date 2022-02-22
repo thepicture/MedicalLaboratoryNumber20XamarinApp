@@ -13,8 +13,8 @@
                             Value="Авторизованный режим" />
                     <Style.Triggers>
                         <DataTrigger TargetType="Label"
-                                     Binding="{Binding CurrentUser}"
-                                     Value="{x:Null}">
+                                     Binding="{Binding CurrentUser, TargetNullValue=''}"
+                                     Value="">
                             <Setter Property="Text"
                                     Value="Гостевой режим" />
                         </DataTrigger>
