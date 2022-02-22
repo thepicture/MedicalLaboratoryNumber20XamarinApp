@@ -1,4 +1,5 @@
-﻿using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
+﻿using MedicalLaboratoryNumber20XamarinApp.Models;
+using MedicalLaboratoryNumber20XamarinApp.Models.RequestModels;
 using MedicalLaboratoryNumber20XamarinApp.Services;
 using System;
 using System.Linq;
@@ -93,6 +94,20 @@ namespace MedicalLaboratoryNumber20XamarinApp.Views.GuestPages
                 return;
             }
 
+            try
+            {
+                if (await PatientRegistrationService.Register(CurrentUser, LaboratoryAPI.BaseUrl))
+                {
+                    await _feedback.InformAsync("Вы успешно зарегистрированы");
+                    await Navigation.PopToRootAsync();
+                }
+            }
+            catch (Exception)
+            {
+                await _feedback.InformAsync("Не удалось зарегистрироваться. " +
+                    "Проверьте подключение к сети " +
+                    "и попробуйте ещё раз");
+            }
         }
     }
 }
