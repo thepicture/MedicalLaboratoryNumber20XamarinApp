@@ -36,7 +36,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
                         content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                         HttpResponseMessage response = await client.PostAsync($"{baseUri}/sessions/register",
                                                                               content);
-                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                        if (response.StatusCode != System.Net.HttpStatusCode.NoContent)
                         {
                             string reason = response.ReasonPhrase;
                             throw new RegistrationException(reason);

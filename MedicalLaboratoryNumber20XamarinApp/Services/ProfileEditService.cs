@@ -43,7 +43,7 @@ namespace MedicalLaboratoryNumber20XamarinApp.Services
                             Content = content
                         };
                         HttpResponseMessage response = await client.SendAsync(request);
-                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                        if (response.StatusCode != System.Net.HttpStatusCode.NoContent)
                         {
                             string reason = response.ReasonPhrase;
                             throw new EditProfileException(reason);
